@@ -116,6 +116,12 @@ const handleCommand = (command)=>{
                         <span>重置密码</span>
                     </el-menu-item>
                 </el-sub-menu>
+                <el-menu-item index="/index">
+                    <el-icon>
+                        <HomeFilled />
+                    </el-icon>
+                    <span>论坛主页</span>
+                </el-menu-item>
             </el-menu>
         </el-aside>
         <!-- 右侧主区域 -->
@@ -161,11 +167,6 @@ const handleCommand = (command)=>{
 
     .el-aside {
         background-color: #232323;
-
-        &__logo {
-            height: 120px;
-            background: url('@/assets/logo.png') no-repeat center / 120px auto;
-        }
 
         .el-menu {
             border-right: none;

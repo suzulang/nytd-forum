@@ -59,6 +59,13 @@ const login =async ()=>{
     router.push('/article/manage')
 }
 
+const testLogin = () => {
+    // 设置测试用户名和密码
+    registerData.value.username = 'admin';
+    registerData.value.password = '123456'
+    login()
+}
+
 </script>
 
 <template>
@@ -108,6 +115,11 @@ const login =async ()=>{
                 <el-form-item>
                     <el-button class="button" type="primary" auto-insert-space @click="login">登录</el-button>
                 </el-form-item>
+                    <!-- 测试登录按钮 -->
+                <el-form-item>
+                    <el-button class="button" type="info" auto-insert-space @click="testLogin">测试登录</el-button>
+                </el-form-item>
+
                 <el-form-item class="flex">
                     <el-link type="info" :underline="false" @click="isRegister = true">
                         注册 →

@@ -15,7 +15,6 @@ import static cn.hutool.core.io.FileUtil.readBytes;
 
 @SpringBootTest
 class NytdForumApplicationTests {
-
     @Test
     void contextLoads() {
 //        String localFilePath = "/Users/wyatt/Desktop/test/631de810-4f77-43f8-bcf3-95cb50167e96.jpg";
@@ -26,5 +25,6 @@ class NytdForumApplicationTests {
 //        String url = QiniuUtil.getDownloadUrl(key, 3600);
 //        System.out.println(url);
     }
+
 
 }

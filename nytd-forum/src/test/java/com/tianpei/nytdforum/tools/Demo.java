@@ -21,22 +21,20 @@ import static cn.hutool.core.io.FileUtil.readBytes;
 
 public class Demo {
     public static void main(String[] args) throws QiniuException {
-//构造一个带指定 Region 对象的配置类
+        //构造一个带指定 Region 对象的配置类
         Configuration cfg = new Configuration(Zone.zone0());
         cfg.resumableUploadAPIVersion = Configuration.ResumableUploadAPIVersion.V2;// 指定分片上传版本
-//...其他参数参考类注释
-
+        //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
-//...生成上传凭证，然后准备上传
+        //...生成上传凭证，然后准备上传
         String accessKey = "ig3UWFBY8XSlh4w7ghIOdRdPtFGPfP3MXreakJ2H";
         String secretKey = "aQm7wm80V3H1AEBSrzlahHMS8G6LuvG7IPKUKJFi";
         String bucket = "nytd-forum";
-
-//默认不指定key的情况下，以文件内容的hash值作为文件名
+        //默认不指定key的情况下，以文件内容的hash值作为文件名
         String key = UUID.randomUUID().toString() + ".jpg";
 
         // 本地文件路径
-        String localFilePath = "/Users/wyatt/Desktop/test/631de810-4f77-43f8-bcf3-95cb50167e96.jpg";
+        String localFilePath = "/Users/wyatt/Downloads/pexels-pixabay-270404.jpg";
 
         // 读取文件内容到字节数组
         byte[] uploadBytes = null;
@@ -62,7 +60,7 @@ public class Demo {
             }
         }
 
-        String domain = "s88a22vuh.hd-bkt.clouddn.com";
+        String domain = "cdn.jtp26.vip";
         Boolean useHttps = false;
         DownloadUrl url = new DownloadUrl(domain, useHttps, key);
         // 带有效期

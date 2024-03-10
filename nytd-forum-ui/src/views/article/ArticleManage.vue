@@ -5,6 +5,7 @@ import {
 } from '@element-plus/icons-vue'
 
 import { ref } from 'vue'
+import { formatDate } from '@/utils/dateUtils';
 
 //文章分类数据模型
 const categorys = ref([
@@ -91,6 +92,10 @@ const articleList = async () => {
 }
 // 点击搜索按钮时执行的函数
 const searchArticles = () => {
+    if (!categoryId.value && !state.value) {
+        articleList();
+        return;
+    }
     // 非空校验
     if (!categoryId.value || !state.value) {
         ElMessage.error('请选择文章分类和发布状态');
@@ -241,7 +246,11 @@ const clearData = () => {
         <el-table :data="articles" style="width: 100%">
             <el-table-column label="文章标题" width="400" prop="title"></el-table-column>
             <el-table-column label="分类" prop="categoryName"></el-table-column>
-            <el-table-column label="发表时间" prop="createTime"> </el-table-column>
+            <el-table-column label="发表时间" prop="createTime">
+                <template #default="{ row }">
+                    {{ formatDate(row.createTime) }}
+                </template>
+            </el-table-column>            
             <el-table-column label="状态" prop="state"></el-table-column>
             <el-table-column label="操作" width="100">
                 <template #default="{ row }">

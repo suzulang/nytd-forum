@@ -1,16 +1,14 @@
 <script setup lang='ts'>
 import { onMounted } from 'vue'
 import { useArticleStore } from '@/stores/article' // 调整路径以匹配你的项目结构
+import { formatDate } from '@/utils/dateUtils';
 
 const articleStore = useArticleStore()
 
 onMounted(() => {
   articleStore.loadArticles()
 })
-const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  return new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }).format(date)
-}
+
 </script>
 
 <template>
